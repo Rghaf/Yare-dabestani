@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "NILOO",
-    "slug": "NILOO",
+    "name": "yare dabestani",
+    "slug": "yare-dabestani",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,13 +21,22 @@
       "supportsTablet": true
     },
     "android": {
+      "userInterfaceStyle": "light",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.rghaf.yaredabestani"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "jsEngine": "hermes",
+    "extra": {
+      "eas": {
+        "projectId": "3916a979-222f-4e2f-996f-9cc201300bba"
+      }
+    },
+    "owner": "rghaf"
   }
 }
