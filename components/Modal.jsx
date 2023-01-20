@@ -32,7 +32,7 @@ const MyModal = ({
           <View
             style={[
               styles.modalView,
-              type === "looseD" ? styles.modalViewLoose : styles.modalViewWin,
+              type === "win" ? styles.modalViewWin : styles.modalViewLoose,
             ]}
           >
             <Text style={styles.txt}>{text1}</Text>

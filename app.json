@@ -2,7 +2,7 @@
   "expo": {
     "name": "yare dabestani",
     "slug": "yare-dabestani",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -14,9 +14,7 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -26,7 +24,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.rghaf.yaredabestani"
+      "package": "com.rghaf.yaredabestani",
+      "buildType": "apk"
     },
     "web": {
       "favicon": "./assets/favicon.png"

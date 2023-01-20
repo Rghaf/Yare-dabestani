@@ -34,6 +34,9 @@ const AppNavigator = () => {
           name="DictGame"
           component={DictGame}
           getId={({ params }) => params.id}
+          options={{
+            back: "LevelsMenu",
+          }}
         />
         <Stack.Screen name="About" component={About} />
       </Stack.Navigator>

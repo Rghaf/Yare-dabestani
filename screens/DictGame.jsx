@@ -4,28 +4,41 @@ import {
   View,
   Button,
   TextInput,
-  ScrollView,
+  BackHandler,
 } from "react-native";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Audio } from "expo-av";
 import { useAppContext } from "../context/myContext";
 import MyModal from "../components/Modal";
+import { useNavigation } from "@react-navigation/native";
 
 const DictGame = ({ route }) => {
+  const navigation = useNavigation();
   const [sound, setSound] = useState();
   const [input, setInput] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
   const [modalType, setModalType] = useState("");
   const { id } = route.params;
-  const { Levels, changeCL } = useAppContext();
+  const { Levels, changeCL, CL } = useAppContext();
+
+  const handleBackButtonClick = () => {
+    navigation.navigate("LevelsMenu");
+    return true;
+  };
+
+  useEffect(() => {
+    BackHandler.addEventListener("hardwareBackPress", handleBackButtonClick);
+    return () => {
+      BackHandler.removeEventListener(
+        "hardwareBackPress",
+        handleBackButtonClick
+      );
+    };
+  }, []);
 
   async function playSound() {
     const url = Levels[id - 1].audio;
     const { sound } = await Audio.Sound.createAsync(url);
-    // "../assets/audio/1.m4a"
-    // {
-    //     uri: "../assets/audio/1.m4a",
-    //   }
     setSound(sound);
     await sound.playAsync();
   }
@@ -34,7 +47,7 @@ const DictGame = ({ route }) => {
     if (input === Levels[id - 1].answer) {
       setModalType("win");
       setModalVisible(true);
-      changeCL(id + 1);
+      if (id >= CL) changeCL(id + 1);
     } else {
       setModalType("looseD");
       setModalVisible(true);
